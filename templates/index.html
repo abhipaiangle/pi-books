@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Login|Register
+{% endblock %}}
+
+{% block body %}
+
+<form action="{{ url_for('login') }}" method="POST" class="container">
+    <div class="form-group">
+        <p>
+
+        </p>
+      <label for="username" class="form-control-lg">Username:</label>
+      <input type="username" class="form-control-lg" placeholder="Enter username" id="username" name="username1">
+    </div>
+    <p>
+
+    </p>
+    <div class="form-group">
+      <label for="pwd" class="form-control-lg">Password:</label>
+      <input type="password" class="form-control-lg" placeholder="Enter password" id="pwd" name="password1">
+    </div>
+      <button type="submit" class="btn btn-primary btn-lg">Submit  </button>
+  </form>
+<p>
+
+</p>
+  <form action="{{ url_for('register') }}" class="container" >
+    <button type="submit" class="btn btn-primary btn-lg">Register</button>
+</form>
+
+{% endblock %}

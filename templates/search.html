@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}
+Search
+{%  endblock %}
+
+{% block body %}
+<div class="float-right">
+    <a href="{{ url_for('index') }} " class="btn btn-primary btn-l">Logout</a>
+</div>
+ <form class="container" action="{{ url_for('search') }}" method="POST">
+     <input type="text" placeholder="Book" name="text_" class="form-control-lg pt-1">
+     <button class="btn btn-primary btn-lg">Search</button>
+ </form>
+
+ <h1>Books</h1>
+ <div class="list-group">
+ {% for book in books %}
+ <li class="list-group-item list-group-item-action list-group-item-info w-25" ><a href="{{url_for('book',isbn=book.isbn)}}">{{book.title}} by {{book.author}}</a></li>
+ <p>
+
+ </p>
+ {% endfor %}
+ </div>
+
+
+{% endblock %}
+ 

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Search Result
+{% endblock %}
+
+{% block body %}
+<div class="float-right">
+    <a href="{{ url_for('index') }} " class="btn btn-primary btn-l">Logout</a>
+</div>
+<h1>Books</h1>
+<div class="list-group">
+{% for book in books %}
+<li class="list-group-item list-group-item-action list-group-item-info w-25" ><a href="{{url_for('book',isbn=book.isbn)}}">{{book.title}} by {{book.author}}</a></li>
+
+{% else %}
+<p class="list-group-item list-group-item-info">
+    No Matching Results!
+</p>
+{% endfor %}
+</div>
+ <div>
+    <form action="{{url_for('back')}}">
+        <button class="list-group-item list-group-item-info">Back</button>
+    </form>
+ </div>
+ 
+ {% endblock %}

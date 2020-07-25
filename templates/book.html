@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{book.title}}
+{% endblock %}
+
+{% block body %}
+<div class="float-right">
+    <a href="{{ url_for('index') }} " class="btn btn-primary btn-l">Logout</a>
+</div>
+<div class="list-group-item list-group-item-action list-group-item-info w-25 bg-fade" >
+<p>Title: {{book.title}}</p>
+<p>Author: {{book.author}}</p>
+<p>ISBN: {{book.isbn}}</p>
+<p>Year of Publication: {{book.year}}</p>
+<p>Average Rating: {{ avg }}</p>
+<p>Number of Ratings recieved: {{ num }}</p>
+</div>
+<div>
+    <form action="{{url_for('back')}}">
+        <button class="list-group-item list-group-item-info">Back</button>
+    </form>
+</div>
+
+<h2>Reviews</h2>
+
+<div>
+    <table class="table table-info">
+        <th>Username</th>
+        <th>Rating</th>
+        <th>Review</th>
+        {% for review in reviews %}
+        <tr>
+        <td>{{review.username}}</td>
+        <td>{{review.rating}}</td>
+        <td>{{ review.review }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<div>
+{% if c==0 %}
+<form action="{{ url_for('review_',isbn=book.isbn) }}" method="post" class="form-control-lg">
+<div class="form-group">    
+<input name="review" placeholder="Write a Review" type="text">
+</div>
+<div class="form-group">
+<input class="list-group-item list-group-item-info" id="rating5" type="radio" name="rating" value="5">
+<label for="rating5">5</label>
+<input class="list-group-item list-group-item-info" id="rating4" type="radio" name="rating" value="4">
+<label for="rating4">4</label>
+<input class="list-group-item list-group-item-info" id="rating3" type="radio" name="rating" value="3">
+<label for="rating3">3</label>
+<input class="list-group-item list-group-item-info" id="rating2" type="radio" name="rating" value="2">
+<label for="rating2">2</label>
+<input class="list-group-item list-group-item-info" id="rating1" type="radio" name="rating" value="1">
+<label for="rating1">1</label>
+</div>
+<input type="submit" class="btn btn-primary btn-lg" >
+</form>
+{% endif %}
+</div>
+
+{% endblock %}
