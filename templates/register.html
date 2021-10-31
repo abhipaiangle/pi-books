@@ -6,20 +6,21 @@ Register
 {% block body %}
 <form action="{{ url_for('success') }}" method="POST">
     <div class="form-group">
-        <p>
-
-        </p>
+        
+        <p></p>
+      
       <label for="username" class="form-control-lg">Username:</label>
       <input type="username" class="form-control-lg" placeholder="Enter username" id="username" name="username">
     </div>
-    <p>
-
-    </p>
+    
+    <p></p>
+    
     <div class="form-group">
       <label for="pwd" class="form-control-lg">Password:</label>
       <input type="password" class="form-control-lg" placeholder="Enter password" id="pwd" name="password">
     </div>
-      <button type="submit" class="btn btn-primary btn-lg">Submit  </button>
+    
+      <button type="submit" class="btn btn-primary btn-lg">Submit</button>
   </form>
   
 {% endblock %}
