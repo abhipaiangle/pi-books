@@ -6,16 +6,18 @@ Search Result
 
 {% block body %}
 <div class="float-right">
-    <a href="{{ url_for('index') }} " class="btn btn-primary btn-l">Logout</a>
+    <a href="{{ url_for('index') }} " class="btn btn-primary btn-l">LogOut</a>
 </div>
 <h1>Books</h1>
 <div class="list-group">
+    
 {% for book in books %}
+
 <li class="list-group-item list-group-item-action list-group-item-info w-25" ><a href="{{url_for('book',isbn=book.isbn)}}">{{book.title}} by {{book.author}}</a></li>
 
 {% else %}
 <p class="list-group-item list-group-item-info">
-    No Matching Results!
+    Not Found!
 </p>
 {% endfor %}
 </div>
